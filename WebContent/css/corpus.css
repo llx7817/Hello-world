@@ -1,0 +1,337 @@
+@CHARSET "UTF-8";
+
+#header{
+	margin: 0px 100px 50px 100px;
+	overflow: hidden;
+}
+#logo{
+	float:left;
+}
+#navigation{
+	float:left;
+}
+#navigation ul{
+	margin:0px;
+	padding:0px;
+	list-style-type: none;
+}
+#navigation li{
+	float:left;
+}
+#rightHead{
+	background-image:url("../images/vocabularys/generate/navigationBackground.png");
+	height:92px;
+	float:left;
+}
+#operator{
+	overflow: hidden;
+}
+#login{
+	float:left;
+}
+#register{
+	float:left;
+}
+#search{
+	text-align: center;
+}
+#content{
+	margin: 10px 100px 50px 100px;
+	overflow:hidden;
+}
+
+#leftBody{
+	float:left;
+	width:18%;
+	text-align:left;
+	background-color: white;
+	padding: 10px 10px 10px 10px;
+}
+#leftBody div{
+	margin: 5px 5px 5px 5px;
+	background-image: url("../images/vocabularys/YixiangVocabulary-basicinfo/title.png");
+	font-size:20px;
+}
+#leftBody div a{
+	text-decoration:none;
+	padding: 13px 10px 13px 10px;
+	display:block;
+	color: white;
+}
+#leftBody div a:hover {color: #FF5500}
+#leftBody div a:active {color: #0099FF}
+
+#leftBody ul{
+	background-color: white;
+	margin: 0px;
+	padding-left: 30px;
+}
+#leftBody ul li{
+	list-style-type: none;
+	font-size:20px;
+	text-align:left;
+	padding: 3px 0px 3px 0px;
+}
+#leftBody ul li a{
+	display:block;
+	color: black;
+}
+
+#footer{
+	background-color: #51A3BB;
+	color:white;
+}
+#upFooter{
+	overflow: hidden;
+}
+#concernUs{
+	margin-left:10%;
+	width:30%;
+	float:left;
+}
+#concernUs p{
+	font-size:18px;
+	margin-left: 30px;	
+}
+#concernUs ul{
+	font-size:13px;
+	list-style-type: none;	
+}
+#concernUs ul li{
+	padding: 3px 0px 3px 0px;
+}
+#concernUs ul li a{
+	text-decoration:none;
+	display: block;
+	color: white;
+}
+#tuochUs{
+	width:30%;
+	float: left;
+}
+#tuochUs p{
+	font-size:18px;
+	margin-left: 40px;	
+}
+#tuochUs ul{
+	font-size:13px;
+	list-style-type: none;	
+}
+#tuochUs ul li{
+	padding: 3px 0px 3px 0px;
+}
+#tuochUs ul li a{
+	text-decoration:none;
+	display: block;
+}
+#quickLink{
+	width:30%;
+	float: left;
+}
+#quickLink p{
+	font-size:18px;
+	margin-left: 30px;	
+}
+#quickLink ul{
+	font-size:13px;
+	list-style-type: none;	
+}
+#quickLink ul li{
+	padding: 3px 0px 3px 0px;
+}
+#quickLink ul li a{
+	text-decoration:none;
+	display: block;
+	color: white;
+}
+#downFooter{
+	margin-left:10%;
+	padding: 10px 0px 10px 0px;
+	font-size:13px;
+}
+
+#rightBody{
+	float:left;
+	width: 74%;
+	margin: 0 10px 0;
+}
+.initialBlock{
+	margin: 20px 0;
+}
+#initialBlock .name{
+	margin-top: 20px;
+	font-size: 42px;
+}
+#initialBlock .value img{
+	width: 23%;
+	padding: 8px 4px;
+}
+
+#detail #word{
+	font-size: 40px;
+	margin: 2px 2px;
+}
+#detail .title{
+	background-image: url("../images/vocabularys/YixiangVocabulary-basicinfo/title.png");
+	padding: 12px 12px;
+}
+#detail .value{
+	margin-bottom: 40px;
+}
+#detail .value span{
+	padding: 8px;
+}
+
+#theGoblet .title{
+	overflow: hidden;
+}
+#theYacht .title{
+	overflow: hidden;
+}
+#theHanky .title{
+	overflow: hidden;
+}
+#theRange .title{
+	overflow: hidden;
+}
+#theGoblet .title img{
+	float: left;
+	width: 12%;
+}
+#theYacht .title img{
+	float: left;
+	width: 12%;
+}
+#theHanky .title img{
+	float: left;
+	width: 12%;
+}
+#theRange .title img{
+	float: left;
+	width: 12%;
+}
+#theGoblet .title .right{
+	padding: 50px 0px 50px 10px;
+	float: left;
+	width: 85%;
+}
+#theYacht .title .right{
+	padding: 50px 0px 50px 10px;
+	float: left;
+	width: 85%;
+}
+#theHanky .title .right{
+	padding: 50px 0px 50px 10px;
+	float: left;
+	width: 85%;
+}
+#theRange .title .right{
+	padding: 50px 0px 50px 10px;
+	float: left;
+	width: 85%;
+}
+#theGoblet .value{
+	margin-top: 30px;
+}
+#theYacht .value{
+	margin-top: 30px;
+}
+#theHanky .value{
+	margin-top: 30px;
+}
+#theRange .value{
+	margin-top: 30px;
+}
+#theGoblet .value img{
+	width: 23%;
+	padding: 8px 4px;
+}
+#theYacht .value img{
+	width: 23%;
+	padding: 8px 4px;
+}
+#theHanky .value img{
+	width: 23%;
+	padding: 8px 4px;
+}
+#theRange .value img{
+	width: 23%;
+	padding: 8px 4px;
+}
+
+#theGoblet2 .title{
+	overflow: hidden;
+}
+#theYacht2 .title{
+	overflow: hidden;
+}
+#theHanky2 .title{
+	overflow: hidden;
+}
+#theRange2 .title{
+	overflow: hidden;
+}
+#theGoblet2 .title img{
+	float: left;
+	width: 12%;
+}
+#theYacht2 .title img{
+	float: left;
+	width: 12%;
+}
+#theHanky2 .title img{
+	float: left;
+	width: 12%;
+}
+#theRange2 .title img{
+	float: left;
+	width: 12%;
+}
+#theGoblet2 .title .right{
+	padding: 0px 0px 0px 10px;
+	float: left;
+	width: 85%;
+}
+#theYacht2 .title .right{
+	padding: 0px 0px 0px 10px;
+	float: left;
+	width: 85%;
+}
+#theHanky2 .title .right{
+	padding: 0px 0px 0px 10px;
+	float: left;
+	width: 85%;
+}
+#theRange2 .title .right{
+	padding: 0px 0px 0px 10px;
+	float: left;
+	width: 85%;
+}
+#theGoblet2 .value{
+	margin-top: 30px;
+}
+#theYacht2 .value{
+	margin-top: 30px;
+}
+#theHanky2 .value{
+	margin-top: 30px;
+}
+#theRange2 .value{
+	margin-top: 30px;
+}
+#theGoblet2 .value img{
+	width: 23%;
+	padding: 8px 4px;
+}
+#theYacht2 .value img{
+	width: 23%;
+	padding: 8px 4px;
+}
+#theHanky2 .value img{
+	width: 23%;
+	padding: 8px 4px;
+}
+#theRange2 .value img{
+	width: 23%;
+	padding: 8px 4px;
+}

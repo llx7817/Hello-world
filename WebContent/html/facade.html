@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="../css/facade.css" rel="stylesheet" type="text/css"/>
+<link href="../css/loginDialog.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+<title>意象映射-appearance</title>
+</head>
+<body>
+<div id="header">
+	<div id="logo">
+		<img src="../images/appearance/generate/homeLogo.png"/>
+	</div>
+	<div id="navigation">
+		<ul>
+	        <li><a href="../index.html"><img src="../images/appearance/generate/navigationHome.png"></a></li>
+	        <li><a href="corpus.html"><img src="../images/first/navigationCorpus.png"></a></li>
+	        <li><a><img src="../images/appearance/generate/navigationFacade.png"></a></li>
+	        <li><a href="imago.html"><img src="../images/appearance/generate/navigationImago.png"></a></li>
+		</ul>
+	</div>
+	<div id="rightHead">
+		<div id="operator">
+			<div id="login"><a href="javascript:void(0)" id="loginBtn"><img src="../images/appearance/generate/login.png"></a></div>
+			<div id="register"><a href="javascript:void(0)" id="registerBtn"><img src="../images/appearance/generate/register.png"></a></div>
+		</div>
+		<div id="search"><img src="../images/appearance/generate/search.png"></div>
+	</div>
+</div>
+<div id="content">
+	<div id="leftBody">
+		<div id="base">
+			<a href="javascript:void(0)" id="baseToggle">底层案例库</a>
+			<ul id="baseContent">
+				<li><a href="javascript:void(0)" id="baseGoblet">高脚杯</a></li>
+				<li><a href="javascript:void(0)" id="baseYacht">游艇</a></li>
+				<li><a href="javascript:void(0)" id="baseHanky">织物</a></li>
+				<li><a href="javascript:void(0)" id="baseRange">煤气灶</a></li>
+			</ul>
+			</div>
+		<div id="code">
+			<a href="javascript:void(0)" id="codeToggle">编码案例库</a>
+			<ul id="codeContent">
+				<li><a href="javascript:void(0)" id="codeGoblet">高脚杯</a></li>
+				<li><a href="javascript:void(0)" id="codeYacht">游艇</a></li>
+				<li><a href="javascript:void(0)" id="codeHanky">织物</a></li>
+				<li><a href="javascript:void(0)" id="codeRange">煤气灶</a></li>
+			</ul>
+			</div>
+		<div id="new">
+			<a href="javascript:void(0)" id="newToggle">新造型库</a>
+			<ul id="newContent">
+				<li><a href="javascript:void(0)" id="newGoblet">高脚杯</a></li>
+				<li><a href="javascript:void(0)" id="newYacht">游艇</a></li>
+				<li><a href="javascript:void(0)" id="newHanky">织物</a></li>
+				<li><a href="javascript:void(0)" id="newRange">煤气灶</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="rightBody">
+		<div id="theBaseGoblet">底层高脚杯</div>
+		<div id="theBaseYacht">底层游艇</div>
+		<div id="theBaseHanky">底层织物</div>
+		<div id="theBaseRange">底层煤气灶</div>
+		<div id="theCodeGoblet">编码高脚杯</div>
+		<div id="theCodeYacht">编码游艇</div>
+		<div id="theCodeHanky">编码织物</div>
+		<div id="theCodeRange">编码煤气灶</div>
+		<div id="theNewGoblet">新高脚杯</div>
+		<div id="theNewYacht">新游艇</div>
+		<div id="theNewHanky">新织物</div>
+		<div id="theNewRange">新煤气灶</div>
+	</div>
+</div>
+<script type="text/javascript">
+$("#codeContent").fadeOut(0);
+$("#newContent").fadeOut(0);
+$("#baseToggle").click(function(){
+    $("#baseContent").fadeToggle(0);
+  });
+$("#codeToggle").click(function(){
+    $("#codeContent").fadeToggle(0);
+  });
+$("#newToggle").click(function(){
+    $("#newContent").fadeToggle(0);
+  });
+</script>
+<script type="text/javascript">
+//$("#theBaseGoblet").fadeOut(0);
+$("#theBaseYacht").fadeOut(0);
+$("#theBaseHanky").fadeOut(0);
+$("#theBaseRange").fadeOut(0);
+$("#theCodeGoblet").fadeOut(0);
+$("#theCodeYacht").fadeOut(0);
+$("#theCodeHanky").fadeOut(0);
+$("#theCodeRange").fadeOut(0);
+$("#theNewGoblet").fadeOut(0);
+$("#theNewYacht").fadeOut(0);
+$("#theNewHanky").fadeOut(0);
+$("#theNewRange").fadeOut(0);
+
+var now = "theBaseGoblet";
+var nowLeft = "baseGoblet";
+$("#baseGoblet").css("color","blue");
+
+$("#baseGoblet").click(function(){
+	if(now!="theBaseGoblet"){
+		$("#"+now).fadeOut(0);
+    	$("#theBaseGoblet").fadeIn(0);
+    	$("#"+nowLeft).css("color","black");
+    	now="theBaseGoblet";
+    	nowLeft="baseGoblet";
+    	$("#baseGoblet").css("color","blue");
+	}
+  });
+$("#baseYacht").click(function(){
+	if(now!="theBaseYacht"){
+		$("#"+now).fadeOut(0);
+    	$("#theBaseYacht").fadeIn(0);
+    	$("#"+nowLeft).css("color","black");
+    	now="theBaseYacht";
+    	nowLeft="baseYacht";
+    	$("#baseYacht").css("color","blue");
+	}
+  });
+$("#baseHanky").click(function(){
+	if(now!="theBaseHanky"){
+		$("#"+now).fadeOut(0);
+    	$("#theBaseHanky").fadeIn(0);
+    	$("#"+nowLeft).css("color","black");
+    	now="theBaseHanky";
+    	nowLeft="baseHanky";
+    	$("#baseHanky").css("color","blue");
+	}
+  });
+$("#baseRange").click(function(){
+	if(now!="theBaseRange"){
+		$("#"+now).fadeOut(0);
+    	$("#theBaseRange").fadeIn(0);
+    	$("#"+nowLeft).css("color","black");
+    	now="theBaseRange";
+    	nowLeft="baseRange";
+    	$("#baseRange").css("color","blue");
+	}
+  });
+$("#codeGoblet").click(function(){
+	if(now!="theCodeGoblet"){
+		$("#"+now).fadeOut(0);
+    	$("#theCodeGoblet").fadeIn(0);
+    	$("#"+nowLeft).css("color","black");
+    	now="theCodeGoblet";
+    	nowLeft="codeGoblet";
+    	$("#codeGoblet").css("color","blue");
+	}
+  });
+$("#codeYacht").click(function(){
+	if(now!="theCodeYacht"){
+		$("#"+now).fadeOut(0);
+    	$("#theCodeYacht").fadeIn(0);
+    	$("#"+nowLeft).css("color","black");
+    	now="theCodeYacht";
+    	nowLeft="codeYacht";
+    	$("#codeYacht").css("color","blue");
+	}
+  });
+$("#codeHanky").click(function(){
+	if(now!="theCodeHanky"){
+		$("#"+now).fadeOut(0);
+    	$("#theCodeHanky").fadeIn(0);
+    	$("#"+nowLeft).css("color","black");
+    	now="theCodeHanky";
+    	nowLeft="codeHanky";
+    	$("#codeHanky").css("color","blue");
+	}
+  });
+$("#codeRange").click(function(){
+	if(now!="theCodeRange"){
+		$("#"+now).fadeOut(0);
+    	$("#theCodeRange").fadeIn(0);
+    	$("#"+nowLeft).css("color","black");
+    	now="theCodeRange";
+    	nowLeft="codeRange";
+    	$("#codeRange").css("color","blue");
+	}
+  });
+$("#newGoblet").click(function(){
+	if(now!="theNewGoblet"){
+		$("#"+now).fadeOut(0);
+    	$("#theNewGoblet").fadeIn(0);
+    	$("#"+nowLeft).css("color","black");
+    	now="theNewGoblet";
+    	nowLeft="newGoblet";
+    	$("#newGoblet").css("color","blue");
+	}
+  });
+$("#newYacht").click(function(){
+	if(now!="theNewYacht"){
+		$("#"+now).fadeOut(0);
+    	$("#theNewYacht").fadeIn(0);
+    	$("#"+nowLeft).css("color","black");
+    	now="theNewYacht";
+    	nowLeft="newYacht";
+    	$("#newYacht").css("color","blue");
+	}
+  });
+$("#newHanky").click(function(){
+	if(now!="theNewHanky"){
+		$("#"+now).fadeOut(0);
+    	$("#theNewHanky").fadeIn(0);
+    	$("#"+nowLeft).css("color","black");
+    	now="theNewHanky";
+    	nowLeft="newHanky";
+    	$("#newHanky").css("color","blue");
+	}
+  });
+$("#newRange").click(function(){
+	if(now!="theNewRange"){
+		$("#"+now).fadeOut(0);
+    	$("#theNewRange").fadeIn(0);
+    	$("#"+nowLeft).css("color","black");
+    	now="theNewRange";
+    	nowLeft="newRange";
+    	$("#newRange").css("color","blue");
+	}
+  });
+</script>
+<div id="footer">
+	<div id="upFooter">
+		<div id="concernUs">
+			<p>关注我们</p>
+			<ul id="concernUsContent">
+				<li><a href="javascript:void(0)">关于意象</a></li>
+				<li><a href="javascript:void(0)">意象新闻</a></li>
+				<li><a href="javascript:void(0)">意象QQ群：123456</a></li>
+				<li><a href="javascript:void(0)">意象微信：yixiangyingshe_1</a></li>
+			</ul>
+		</div>
+		<div id="tuochUs">
+			<p>联系我们</p>
+			<ul id="tuochUsContent">
+				<li>有任何想法请联系我们。</li>
+				<li>中国浙江省杭州市西湖区</li>
+				<li>中国美院象山校区18号楼115室</li>
+				<li>057187200225</li>
+				<li>aliu6@126.com</li>
+			</ul>
+		</div>
+		<div id="quickLink">
+			<p>快速链接</p>
+			<ul id="quickLinkContent">
+				<li><a href="javascript:void(0)">中国美院大学生科技园</a></li>
+				<li><a href="javascript:void(0)">中国美术学院</a></li>
+				<li><a href="javascript:void(0)">中国美院设计学院</a></li>
+				<li><a href="javascript:void(0)">知识工程师入口</a></li>
+			</ul>
+		</div>
+	</div>
+	<hr>
+	<div id="downFooter">
+		COPYRIGHT 2016 YIXIANGYINGSHE ALL RIGHTS RESERVED
+	</div>
+</div>
+<script type="text/javascript">
+function loginCheck(){
+	var account = document.getElementById("account");
+	var password = document.getElementById("password");
+	if(account.value==""){
+		alert("请输入账号");
+		return false;
+	}else if(password.value==""){
+		alert("请输入密码");
+		return false;
+	}
+}
+</script>
+<div id="LoginBox">
+	<form action="customerLogin.do" method="post" onSubmit="return loginCheck()">
+	    <div class="rowTitle"> 
+	   	 意象造型映射<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
+	    </div>
+	    <div class="row">
+	         <span>账号</span>  <br>
+	         <div class="inputBox">
+	            <input type="text" class="txt" id="account" name="account" placeholder="账号"/>
+	         </div>
+	    </div>
+	    <div class="row">
+	       <span>密码</span><br>
+	    	<div class="inputBox">
+	            <input type="password" class="txt" id="password" name="password" placeholder="密码" />
+	        </div>
+	    </div>
+	    <div class="row">
+	        <button type="submit" id="loginbtn">登录</button>
+	    </div>
+    </form>
+    <div id="loginHint">
+   	 还没有账号？<a href="javascript:void(0)" id="turnToRegister">注册</a>
+    </div>
+    <script type="text/javascript">
+    $("#turnToRegister").on('click',function(){
+    	$("#LoginBox").fadeOut(0);
+    	$("#RegisterBox").fadeIn(0);
+    })
+    </script>
+</div>
+<script type="text/javascript">
+	$(function ($) {
+		//弹出登录
+		$("#loginBtn").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.6'
+			}, 1000);
+		}).on('click', function () {
+			$("body").append("<div id='mask'></div>");
+			$("#mask").addClass("mask").fadeIn("slow");
+			$("#LoginBox").fadeIn("slow");
+		});
+		//
+		//按钮的透明度
+		$("#loginbtn").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.8'
+			}, 1000);
+		});
+		//关闭
+		$(".close_btn").hover(function () { $(this).css({ color: 'black' }) }, function () { $(this).css({ color: '#51A3BB' }) }).on('click', function () {
+			$("#LoginBox").fadeOut("fast");
+			$("#mask").css({ display: 'none' });
+		});
+	});
+</script>
+<script type="text/javascript">
+function registerCheck(){
+	var newAccount = document.getElementById("newAccount");
+	var newPassword = document.getElementById("newPassword");
+	if(newAccount.value==""){
+		alert("请输入账号");
+		return false;
+	}else if(newPassword.value==""){
+		alert("请输入密码");
+		return false;
+	}
+}
+</script>
+<div id="RegisterBox">
+	<form action="customerRegister.do" method="post" onSubmit="return registerCheck()">
+	    <div class="rowTitle"> 
+	   	 意象造型映射<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
+	    </div>
+	    <div class="row">
+	         <span>账号</span>  <br>
+	         <div class="inputBox">
+	            <input type="text" class="txt" id="newAccount" name="newAccount" placeholder="账号"/>
+	         </div>
+	    </div>
+	    <div class="row">
+	       <span>密码</span><br>
+	    	<div class="inputBox">
+	            <input type="password" class="txt" id="newPassword" name="newPassword" placeholder="密码" />
+	        </div>
+	    </div>
+	    <div class="row">
+	        <button type="submit" id="registerbtn">注册</button>
+	    </div>
+    </form>
+    <div id="registerHint">
+   	 注册成功，请<a href="javascript:void(0)" id="turnToLogin">登录</a>
+    </div>
+    <script type="text/javascript">
+    $("#turnToLogin").on('click',function(){
+    	$("#RegisterBox").fadeOut(0);
+    	$("#LoginBox").fadeIn(0);
+    })
+    </script>
+</div>
+<script type="text/javascript">
+	$(function ($) {
+		//弹出注册
+		$("#registerBtn").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.6'
+			}, 1000);
+		}).on('click', function () {
+			$("body").append("<div id='mask'></div>");
+			$("#mask").addClass("mask").fadeIn("slow");
+			$("#RegisterBox").fadeIn("slow");
+		});
+		//
+		//按钮的透明度
+		$("#registerbtn").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.8'
+			}, 1000);
+		});
+		//关闭
+		$(".close_btn").hover(function () { $(this).css({ color: 'black' }) }, function () { $(this).css({ color: '#51A3BB' }) }).on('click', function () {
+			$("#RegisterBox").fadeOut("fast");
+			$("#mask").css({ display: 'none' });
+		});
+	});
+</script>
+</body>
+</html>

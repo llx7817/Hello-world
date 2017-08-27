@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.art.dao.ColorMapper" >
+  <resultMap id="BaseResultMap" type="cn.art.model.Color" >
+    <id column="CID" property="cid" jdbcType="INTEGER" />
+    <result column="CBID" property="cbid" jdbcType="INTEGER" />
+    <result column="TID" property="tid" jdbcType="INTEGER" />
+    <result column="CDescription" property="cdescription" jdbcType="VARCHAR" />
+    <result column="CRGB" property="crgb" jdbcType="VARCHAR" />
+    <result column="CNum" property="cnum" jdbcType="VARCHAR" />
+    <result column="CFile" property="cfile" jdbcType="VARCHAR" />
+    <result column="CImg" property="cimg" jdbcType="VARCHAR" />
+    <result column="CImg1" property="cimg1" jdbcType="VARCHAR" />
+    <result column="CImg2" property="cimg2" jdbcType="VARCHAR" />
+    <result column="CImg3" property="cimg3" jdbcType="VARCHAR" />
+    <result column="CImg4" property="cimg4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CID, CBID, TID, CDescription, CRGB, CNum, CFile, CImg, CImg1, CImg2, CImg3, CImg4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from color_
+    where CID = #{cid,jdbcType=INTEGER}
+  </select>
+  
+   <select id="selectByTID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from color_
+    where TID = #{tid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from color_
+    where CDescription = #{cdescription,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="CountNumByName" resultType="java.lang.Integer" parameterType="java.lang.String" >
+    select count(*) from color_
+    where CDescription = #{cdescription,jdbcType=VARCHAR}
+  </select>
+  
+   <select id="selectByTIDandCBID" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from color_
+    where TID = #{tid,jdbcType=INTEGER} and  CBID = #{cbid,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from color_
+    where CID = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.art.model.Color" >
+    insert into color_ (CID, CBID, TID, 
+      CDescription, CRGB, CNum, 
+      CFile, CImg, CImg1, 
+      CImg2, CImg3, CImg4
+      )
+    values (#{cid,jdbcType=INTEGER}, #{cbid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, 
+      #{cdescription,jdbcType=VARCHAR}, #{crgb,jdbcType=VARCHAR}, #{cnum,jdbcType=VARCHAR}, 
+      #{cfile,jdbcType=VARCHAR}, #{cimg,jdbcType=VARCHAR}, #{cimg1,jdbcType=VARCHAR}, 
+      #{cimg2,jdbcType=VARCHAR}, #{cimg3,jdbcType=VARCHAR}, #{cimg4,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.art.model.Color" >
+    insert into color_
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        CID,
+      </if>
+      <if test="cbid != null" >
+        CBID,
+      </if>
+      <if test="tid != null" >
+        TID,
+      </if>
+      <if test="cdescription != null" >
+        CDescription,
+      </if>
+      <if test="crgb != null" >
+        CRGB,
+      </if>
+      <if test="cnum != null" >
+        CNum,
+      </if>
+      <if test="cfile != null" >
+        CFile,
+      </if>
+      <if test="cimg != null" >
+        CImg,
+      </if>
+      <if test="cimg1 != null" >
+        CImg1,
+      </if>
+      <if test="cimg2 != null" >
+        CImg2,
+      </if>
+      <if test="cimg3 != null" >
+        CImg3,
+      </if>
+      <if test="cimg4 != null" >
+        CImg4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="cbid != null" >
+        #{cbid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="cdescription != null" >
+        #{cdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="crgb != null" >
+        #{crgb,jdbcType=VARCHAR},
+      </if>
+      <if test="cnum != null" >
+        #{cnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cfile != null" >
+        #{cfile,jdbcType=VARCHAR},
+      </if>
+      <if test="cimg != null" >
+        #{cimg,jdbcType=VARCHAR},
+      </if>
+      <if test="cimg1 != null" >
+        #{cimg1,jdbcType=VARCHAR},
+      </if>
+      <if test="cimg2 != null" >
+        #{cimg2,jdbcType=VARCHAR},
+      </if>
+      <if test="cimg3 != null" >
+        #{cimg3,jdbcType=VARCHAR},
+      </if>
+      <if test="cimg4 != null" >
+        #{cimg4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.art.model.Color" >
+    update color_
+    <set >
+      <if test="cbid != null" >
+        CBID = #{cbid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        TID = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="cdescription != null" >
+        CDescription = #{cdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="crgb != null" >
+        CRGB = #{crgb,jdbcType=VARCHAR},
+      </if>
+      <if test="cnum != null" >
+        CNum = #{cnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cfile != null" >
+        CFile = #{cfile,jdbcType=VARCHAR},
+      </if>
+      <if test="cimg != null" >
+        CImg = #{cimg,jdbcType=VARCHAR},
+      </if>
+      <if test="cimg1 != null" >
+        CImg1 = #{cimg1,jdbcType=VARCHAR},
+      </if>
+      <if test="cimg2 != null" >
+        CImg2 = #{cimg2,jdbcType=VARCHAR},
+      </if>
+      <if test="cimg3 != null" >
+        CImg3 = #{cimg3,jdbcType=VARCHAR},
+      </if>
+      <if test="cimg4 != null" >
+        CImg4 = #{cimg4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CID = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.art.model.Color" >
+    update color_
+    set CBID = #{cbid,jdbcType=INTEGER},
+      TID = #{tid,jdbcType=INTEGER},
+      CDescription = #{cdescription,jdbcType=VARCHAR},
+      CRGB = #{crgb,jdbcType=VARCHAR},
+      CNum = #{cnum,jdbcType=VARCHAR},
+      CFile = #{cfile,jdbcType=VARCHAR},
+      CImg = #{cimg,jdbcType=VARCHAR},
+      CImg1 = #{cimg1,jdbcType=VARCHAR},
+      CImg2 = #{cimg2,jdbcType=VARCHAR},
+      CImg3 = #{cimg3,jdbcType=VARCHAR},
+      CImg4 = #{cimg4,jdbcType=VARCHAR}
+    where CID = #{cid,jdbcType=INTEGER}
+  </update>
+</mapper>

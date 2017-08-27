@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.art.dao.BottomCaseMapper" >
+  <resultMap id="BaseResultMap" type="cn.art.model.BottomCase" >
+    <id column="BCID" property="bcid" jdbcType="INTEGER" />
+    <result column="BCTID" property="bctid" jdbcType="INTEGER" />
+    <result column="TID" property="tid" jdbcType="INTEGER" />
+    <result column="CaseName" property="casename" jdbcType="VARCHAR" />
+    <result column="CaseBrand" property="casebrand" jdbcType="VARCHAR" />
+    <result column="CaseImg" property="caseimg" jdbcType="VARCHAR" />
+    <result column="CaseImg1" property="caseimg1" jdbcType="VARCHAR" />
+    <result column="CaseImg2" property="caseimg2" jdbcType="VARCHAR" />
+    <result column="CaseImg3" property="caseimg3" jdbcType="VARCHAR" />
+    <result column="CaseImg4" property="caseimg4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    BCID, BCTID, TID, CaseName, CaseBrand, CaseImg, CaseImg1, CaseImg2, CaseImg3, CaseImg4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from bottomcase_
+    where BCID = #{bcid,jdbcType=INTEGER}
+  </select>
+  
+   <select id="selectByTID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from bottomcase_
+    where TID = #{tid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByTIDandBCTID" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from bottomcase_
+    where TID = #{tid,jdbcType=INTEGER} and BCTID = #{bctid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bottomcase_
+    where CaseName = #{casename,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="CountNumByName" resultType="java.lang.Integer" parameterType="java.lang.String" >
+    select count(*) from bottomcase_
+    where CaseName = #{casename,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from bottomcase_
+    where BCID = #{bcid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.art.model.BottomCase" >
+    insert into bottomcase_ (BCID, BCTID, TID, 
+      CaseName, CaseBrand, CaseImg, 
+      CaseImg1, CaseImg2, CaseImg3, 
+      CaseImg4)
+    values (#{bcid,jdbcType=INTEGER}, #{bctid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, 
+      #{casename,jdbcType=VARCHAR}, #{casebrand,jdbcType=VARCHAR}, #{caseimg,jdbcType=VARCHAR}, 
+      #{caseimg1,jdbcType=VARCHAR}, #{caseimg2,jdbcType=VARCHAR}, #{caseimg3,jdbcType=VARCHAR}, 
+      #{caseimg4,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.art.model.BottomCase" >
+    insert into bottomcase_
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bcid != null" >
+        BCID,
+      </if>
+      <if test="bctid != null" >
+        BCTID,
+      </if>
+      <if test="tid != null" >
+        TID,
+      </if>
+      <if test="casename != null" >
+        CaseName,
+      </if>
+      <if test="casebrand != null" >
+        CaseBrand,
+      </if>
+      <if test="caseimg != null" >
+        CaseImg,
+      </if>
+      <if test="caseimg1 != null" >
+        CaseImg1,
+      </if>
+      <if test="caseimg2 != null" >
+        CaseImg2,
+      </if>
+      <if test="caseimg3 != null" >
+        CaseImg3,
+      </if>
+      <if test="caseimg4 != null" >
+        CaseImg4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bcid != null" >
+        #{bcid,jdbcType=INTEGER},
+      </if>
+      <if test="bctid != null" >
+        #{bctid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="casename != null" >
+        #{casename,jdbcType=VARCHAR},
+      </if>
+      <if test="casebrand != null" >
+        #{casebrand,jdbcType=VARCHAR},
+      </if>
+      <if test="caseimg != null" >
+        #{caseimg,jdbcType=VARCHAR},
+      </if>
+      <if test="caseimg1 != null" >
+        #{caseimg1,jdbcType=VARCHAR},
+      </if>
+      <if test="caseimg2 != null" >
+        #{caseimg2,jdbcType=VARCHAR},
+      </if>
+      <if test="caseimg3 != null" >
+        #{caseimg3,jdbcType=VARCHAR},
+      </if>
+      <if test="caseimg4 != null" >
+        #{caseimg4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.art.model.BottomCase" >
+    update bottomcase_
+    <set >
+      <if test="bctid != null" >
+        BCTID = #{bctid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        TID = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="casename != null" >
+        CaseName = #{casename,jdbcType=VARCHAR},
+      </if>
+      <if test="casebrand != null" >
+        CaseBrand = #{casebrand,jdbcType=VARCHAR},
+      </if>
+      <if test="caseimg != null" >
+        CaseImg = #{caseimg,jdbcType=VARCHAR},
+      </if>
+      <if test="caseimg1 != null" >
+        CaseImg1 = #{caseimg1,jdbcType=VARCHAR},
+      </if>
+      <if test="caseimg2 != null" >
+        CaseImg2 = #{caseimg2,jdbcType=VARCHAR},
+      </if>
+      <if test="caseimg3 != null" >
+        CaseImg3 = #{caseimg3,jdbcType=VARCHAR},
+      </if>
+      <if test="caseimg4 != null" >
+        CaseImg4 = #{caseimg4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BCID = #{bcid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.art.model.BottomCase" >
+    update bottomcase_
+    set BCTID = #{bctid,jdbcType=INTEGER},
+      TID = #{tid,jdbcType=INTEGER},
+      CaseName = #{casename,jdbcType=VARCHAR},
+      CaseBrand = #{casebrand,jdbcType=VARCHAR},
+      CaseImg = #{caseimg,jdbcType=VARCHAR},
+      CaseImg1 = #{caseimg1,jdbcType=VARCHAR},
+      CaseImg2 = #{caseimg2,jdbcType=VARCHAR},
+      CaseImg3 = #{caseimg3,jdbcType=VARCHAR},
+      CaseImg4 = #{caseimg4,jdbcType=VARCHAR}
+    where BCID = #{bcid,jdbcType=INTEGER}
+  </update>
+</mapper>

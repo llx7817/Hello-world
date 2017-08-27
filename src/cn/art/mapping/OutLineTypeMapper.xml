@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.art.dao.OutLineTypeMapper" >
+  <resultMap id="BaseResultMap" type="cn.art.model.OutLineType" >
+    <id column="OTID" property="otid" jdbcType="INTEGER" />
+    <result column="TID" property="tid" jdbcType="INTEGER" />
+    <result column="OName" property="oname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    OTID, TID, OName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from outlinetype_
+    where OTID = #{otid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByTID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from outlinetype_
+    where TID = #{tid,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from outlinetype_
+    where OTID = #{otid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.art.model.OutLineType" >
+    insert into outlinetype_ (OTID, TID, OName
+      )
+    values (#{otid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{oname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.art.model.OutLineType" >
+    insert into outlinetype_
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="otid != null" >
+        OTID,
+      </if>
+      <if test="tid != null" >
+        TID,
+      </if>
+      <if test="oname != null" >
+        OName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="otid != null" >
+        #{otid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="oname != null" >
+        #{oname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.art.model.OutLineType" >
+    update outlinetype_
+    <set >
+      <if test="tid != null" >
+        TID = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="oname != null" >
+        OName = #{oname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where OTID = #{otid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.art.model.OutLineType" >
+    update outlinetype_
+    set TID = #{tid,jdbcType=INTEGER},
+      OName = #{oname,jdbcType=VARCHAR}
+    where OTID = #{otid,jdbcType=INTEGER}
+  </update>
+</mapper>

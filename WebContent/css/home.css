@@ -1,0 +1,134 @@
+@CHARSET "UTF-8";
+
+#header{
+	margin: 0px 100px 60px 100px;
+	overflow: hidden;
+}
+#logo{
+	float:left;
+}
+#navigation{
+	float:left;
+}
+#navigation ul{
+	margin:0px;
+	padding:0px;
+	list-style-type: none;
+}
+#navigation li{
+	float:left;
+}
+#rightHead{
+	background-image:url("../images/first/navigationBackground.gif");
+	height:92px;
+	float:left;
+}
+#operator{
+	overflow: hidden;
+}
+#login{
+	float:left;
+}
+#register{
+	float:left;
+}
+#search{
+	text-align: center;
+}
+
+#footer{
+	background-color: #51A3BB;
+	color:white;
+}
+#upFooter{
+	overflow: hidden;
+}
+#concernUs{
+	margin-left:10%;
+	width:30%;
+	float:left;
+}
+#concernUs p{
+	font-size:18px;
+	margin-left: 30px;	
+}
+#concernUs ul{
+	font-size:13px;
+	list-style-type: none;	
+}
+#concernUs ul li{
+	padding: 3px 0px 3px 0px;
+}
+#concernUs ul li a{
+	text-decoration:none;
+	display: block;
+	color: white;
+}
+#tuochUs{
+	width:30%;
+	float: left;
+}
+#tuochUs p{
+	font-size:18px;
+	margin-left: 40px;	
+}
+#tuochUs ul{
+	font-size:13px;
+	list-style-type: none;	
+}
+#tuochUs ul li{
+	padding: 3px 0px 3px 0px;
+}
+#tuochUs ul li a{
+	text-decoration:none;
+	display: block;
+}
+#quickLink{
+	width:30%;
+	float: left;
+}
+#quickLink p{
+	font-size:18px;
+	margin-left: 30px;	
+}
+#quickLink ul{
+	font-size:13px;
+	list-style-type: none;	
+}
+#quickLink ul li{
+	padding: 3px 0px 3px 0px;
+}
+#quickLink ul li a{
+	text-decoration:none;
+	display: block;
+	color: white;
+}
+#downFooter{
+	margin-left:10%;
+	padding: 10px 0px 10px 0px;
+	font-size:13px;
+}
+
+/* focus */
+#focus{
+	margin: 0px 100px 60px 100px;
+	text-align: center;
+}
+#focus #pic{width:1073px;height:560px;overflow:hidden;}
+#focus #pic ul{width:5365px;height:560px;float:left;list-style:none;padding: 0px;}
+#focus #pic li{width:1073px;height:560px;float:left;}
+#focus #pic li img{width:1073px;height:560px;float:left;}
+
+#focus #tip{text-align:center;margin:-32px 0 0;position:absolute;z-index:13;left:44%;overflow:hidden;}
+#focus #tip ul{padding: 0px;overflow:hidden;width: 120px;list-style:none;}
+#focus #tip ul li{width:14px;height:14px;float:left;display:inline;margin:0 5px;cursor:pointer;background:url(../images/first/imgLi.png) no-repeat;}
+#focus #tip ul li.current{background:url(../images/first/imgLiCurrent.png) no-repeat;}
+
+#show{
+	text-align: center;
+}
+#show ul li{
+	display: inline;
+	list-style:none;
+	margin: 30px;
+}

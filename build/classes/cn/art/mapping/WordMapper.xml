@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.art.dao.WordMapper" >
+  <resultMap id="BaseResultMap" type="cn.art.model.Word" >
+    <id column="WID" property="wid" jdbcType="INTEGER" />
+    <result column="WWord" property="wword" jdbcType="VARCHAR" />
+    <result column="WBasic" property="wbasic" jdbcType="VARCHAR" />
+    <result column="WDetail" property="wdetail" jdbcType="VARCHAR" />
+    <result column="WSimilar" property="wsimilar" jdbcType="VARCHAR" />
+    <result column="WOposite" property="woposite" jdbcType="VARCHAR" />
+    <result column="WColorWarm" property="wcolorwarm" jdbcType="INTEGER" />
+    <result column="WFirstChar" property="wfirstchar" jdbcType="VARCHAR" />
+    <result column="WVocaType" property="wvocatype" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    WID, WWord, WBasic, WDetail, WSimilar, WOposite, WColorWarm, WFirstChar, WVocaType
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from word_
+    where WID = #{wid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByWFirstChar" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from word_
+    where WFirstChar = #{wfirstchar,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByWVocaType" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from word_
+    where WVocaType = #{wvocatype,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from word_
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from word_
+    where WID = #{wid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.art.model.Word" >
+    insert into word_ (WID, WWord, WBasic, 
+      WDetail, WSimilar, WOposite, 
+      WColorWarm, WFirstChar, WVocaType
+      )
+    values (#{wid,jdbcType=INTEGER}, #{wword,jdbcType=VARCHAR}, #{wbasic,jdbcType=VARCHAR}, 
+      #{wdetail,jdbcType=VARCHAR}, #{wsimilar,jdbcType=VARCHAR}, #{woposite,jdbcType=VARCHAR}, 
+      #{wcolorwarm,jdbcType=INTEGER}, #{wfirstchar,jdbcType=VARCHAR}, #{wvocatype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.art.model.Word" >
+    insert into word_
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wid != null" >
+        WID,
+      </if>
+      <if test="wword != null" >
+        WWord,
+      </if>
+      <if test="wbasic != null" >
+        WBasic,
+      </if>
+      <if test="wdetail != null" >
+        WDetail,
+      </if>
+      <if test="wsimilar != null" >
+        WSimilar,
+      </if>
+      <if test="woposite != null" >
+        WOposite,
+      </if>
+      <if test="wcolorwarm != null" >
+        WColorWarm,
+      </if>
+      <if test="wfirstchar != null" >
+        WFirstChar,
+      </if>
+      <if test="wvocatype != null" >
+        WVocaType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wid != null" >
+        #{wid,jdbcType=INTEGER},
+      </if>
+      <if test="wword != null" >
+        #{wword,jdbcType=VARCHAR},
+      </if>
+      <if test="wbasic != null" >
+        #{wbasic,jdbcType=VARCHAR},
+      </if>
+      <if test="wdetail != null" >
+        #{wdetail,jdbcType=VARCHAR},
+      </if>
+      <if test="wsimilar != null" >
+        #{wsimilar,jdbcType=VARCHAR},
+      </if>
+      <if test="woposite != null" >
+        #{woposite,jdbcType=VARCHAR},
+      </if>
+      <if test="wcolorwarm != null" >
+        #{wcolorwarm,jdbcType=INTEGER},
+      </if>
+      <if test="wfirstchar != null" >
+        #{wfirstchar,jdbcType=VARCHAR},
+      </if>
+      <if test="wvocatype != null" >
+        #{wvocatype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.art.model.Word" >
+    update word_
+    <set >
+      <if test="wword != null" >
+        WWord = #{wword,jdbcType=VARCHAR},
+      </if>
+      <if test="wbasic != null" >
+        WBasic = #{wbasic,jdbcType=VARCHAR},
+      </if>
+      <if test="wdetail != null" >
+        WDetail = #{wdetail,jdbcType=VARCHAR},
+      </if>
+      <if test="wsimilar != null" >
+        WSimilar = #{wsimilar,jdbcType=VARCHAR},
+      </if>
+      <if test="woposite != null" >
+        WOposite = #{woposite,jdbcType=VARCHAR},
+      </if>
+      <if test="wcolorwarm != null" >
+        WColorWarm = #{wcolorwarm,jdbcType=INTEGER},
+      </if>
+      <if test="wfirstchar != null" >
+        WFirstChar = #{wfirstchar,jdbcType=VARCHAR},
+      </if>
+      <if test="wvocatype != null" >
+        WVocaType = #{wvocatype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where WID = #{wid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.art.model.Word" >
+    update word_
+    set WWord = #{wword,jdbcType=VARCHAR},
+      WBasic = #{wbasic,jdbcType=VARCHAR},
+      WDetail = #{wdetail,jdbcType=VARCHAR},
+      WSimilar = #{wsimilar,jdbcType=VARCHAR},
+      WOposite = #{woposite,jdbcType=VARCHAR},
+      WColorWarm = #{wcolorwarm,jdbcType=INTEGER},
+      WFirstChar = #{wfirstchar,jdbcType=VARCHAR},
+      WVocaType = #{wvocatype,jdbcType=VARCHAR}
+    where WID = #{wid,jdbcType=INTEGER}
+  </update>
+</mapper>

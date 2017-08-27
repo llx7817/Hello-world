@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.art.dao.SurveyMapper" >
+  <resultMap id="BaseResultMap" type="cn.art.model.Survey" >
+    <id column="SID" property="sid" jdbcType="INTEGER" />
+    <result column="TID" property="tid" jdbcType="INTEGER" />
+    <result column="ChooseSurvey" property="choosesurvey" jdbcType="VARCHAR" />
+    <result column="WordSurvey" property="wordsurvey" jdbcType="VARCHAR" />
+    <result column="WordResult" property="wordresult" jdbcType="VARCHAR" />
+    <result column="ConnectSurvey" property="connectsurvey" jdbcType="VARCHAR" />
+    <result column="ConnectResult" property="connectresult" jdbcType="VARCHAR" />
+    <result column="Algorithms" property="algorithms" jdbcType="VARCHAR" />
+    <result column="Ratio" property="ratio" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SID, TID, ChooseSurvey, WordSurvey, WordResult, ConnectSurvey, ConnectResult, Algorithms, 
+    Ratio
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from survey_
+    where SID = #{sid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByTID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from survey_
+    where TID = #{tid,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from survey_
+    where SID = #{sid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.art.model.Survey" >
+    insert into survey_ (SID, TID, ChooseSurvey, 
+      WordSurvey, WordResult, ConnectSurvey, 
+      ConnectResult, Algorithms, Ratio
+      )
+    values (#{sid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{choosesurvey,jdbcType=VARCHAR}, 
+      #{wordsurvey,jdbcType=VARCHAR}, #{wordresult,jdbcType=VARCHAR}, #{connectsurvey,jdbcType=VARCHAR}, 
+      #{connectresult,jdbcType=VARCHAR}, #{algorithms,jdbcType=VARCHAR}, #{ratio,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.art.model.Survey" >
+    insert into survey_
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sid != null" >
+        SID,
+      </if>
+      <if test="tid != null" >
+        TID,
+      </if>
+      <if test="choosesurvey != null" >
+        ChooseSurvey,
+      </if>
+      <if test="wordsurvey != null" >
+        WordSurvey,
+      </if>
+      <if test="wordresult != null" >
+        WordResult,
+      </if>
+      <if test="connectsurvey != null" >
+        ConnectSurvey,
+      </if>
+      <if test="connectresult != null" >
+        ConnectResult,
+      </if>
+      <if test="algorithms != null" >
+        Algorithms,
+      </if>
+      <if test="ratio != null" >
+        Ratio,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sid != null" >
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="choosesurvey != null" >
+        #{choosesurvey,jdbcType=VARCHAR},
+      </if>
+      <if test="wordsurvey != null" >
+        #{wordsurvey,jdbcType=VARCHAR},
+      </if>
+      <if test="wordresult != null" >
+        #{wordresult,jdbcType=VARCHAR},
+      </if>
+      <if test="connectsurvey != null" >
+        #{connectsurvey,jdbcType=VARCHAR},
+      </if>
+      <if test="connectresult != null" >
+        #{connectresult,jdbcType=VARCHAR},
+      </if>
+      <if test="algorithms != null" >
+        #{algorithms,jdbcType=VARCHAR},
+      </if>
+      <if test="ratio != null" >
+        #{ratio,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.art.model.Survey" >
+    update survey_
+    <set >
+      <if test="tid != null" >
+        TID = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="choosesurvey != null" >
+        ChooseSurvey = #{choosesurvey,jdbcType=VARCHAR},
+      </if>
+      <if test="wordsurvey != null" >
+        WordSurvey = #{wordsurvey,jdbcType=VARCHAR},
+      </if>
+      <if test="wordresult != null" >
+        WordResult = #{wordresult,jdbcType=VARCHAR},
+      </if>
+      <if test="connectsurvey != null" >
+        ConnectSurvey = #{connectsurvey,jdbcType=VARCHAR},
+      </if>
+      <if test="connectresult != null" >
+        ConnectResult = #{connectresult,jdbcType=VARCHAR},
+      </if>
+      <if test="algorithms != null" >
+        Algorithms = #{algorithms,jdbcType=VARCHAR},
+      </if>
+      <if test="ratio != null" >
+        Ratio = #{ratio,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.art.model.Survey" >
+    update survey_
+    set TID = #{tid,jdbcType=INTEGER},
+      ChooseSurvey = #{choosesurvey,jdbcType=VARCHAR},
+      WordSurvey = #{wordsurvey,jdbcType=VARCHAR},
+      WordResult = #{wordresult,jdbcType=VARCHAR},
+      ConnectSurvey = #{connectsurvey,jdbcType=VARCHAR},
+      ConnectResult = #{connectresult,jdbcType=VARCHAR},
+      Algorithms = #{algorithms,jdbcType=VARCHAR},
+      Ratio = #{ratio,jdbcType=VARCHAR}
+    where SID = #{sid,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateOnlyCA" parameterType="cn.art.model.Survey" >
+    update survey_
+    set ChooseSurvey = #{choosesurvey,jdbcType=VARCHAR},
+      Algorithms = #{algorithms,jdbcType=VARCHAR}
+    where TID = #{tid,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateOnlyCA1" parameterType="cn.art.util.pojo.surveyCA" >
+    update survey_
+    set ChooseSurvey = #{choosesurvey,jdbcType=VARCHAR},
+      Algorithms = #{algorithms,jdbcType=VARCHAR}
+    where TID = #{tid,jdbcType=INTEGER}
+  </update>
+  
+</mapper>

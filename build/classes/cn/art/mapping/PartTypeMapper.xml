@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.art.dao.PartTypeMapper" >
+  <resultMap id="BaseResultMap" type="cn.art.model.PartType" >
+    <id column="PBID" property="pbid" jdbcType="INTEGER" />
+    <result column="TID" property="tid" jdbcType="INTEGER" />
+    <result column="PBName" property="pbname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PBID, TID, PBName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from parttype_
+    where PBID = #{pbid,jdbcType=INTEGER}
+  </select>
+  
+   <select id="selectByTID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from parttype_
+    where TID = #{tid,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from parttype_
+    where PBID = #{pbid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.art.model.PartType" >
+    insert into parttype_ (PBID, TID, PBName
+      )
+    values (#{pbid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{pbname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.art.model.PartType" >
+    insert into parttype_
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pbid != null" >
+        PBID,
+      </if>
+      <if test="tid != null" >
+        TID,
+      </if>
+      <if test="pbname != null" >
+        PBName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pbid != null" >
+        #{pbid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="pbname != null" >
+        #{pbname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.art.model.PartType" >
+    update parttype_
+    <set >
+      <if test="tid != null" >
+        TID = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="pbname != null" >
+        PBName = #{pbname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PBID = #{pbid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.art.model.PartType" >
+    update parttype_
+    set TID = #{tid,jdbcType=INTEGER},
+      PBName = #{pbname,jdbcType=VARCHAR}
+    where PBID = #{pbid,jdbcType=INTEGER}
+  </update>
+</mapper>

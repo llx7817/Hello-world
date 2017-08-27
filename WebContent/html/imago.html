@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="../css/imago.css" rel="stylesheet" type="text/css"/>
+<link href="../css/loginDialog.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+<title>意象映射-意象映射系统</title>
+</head>
+<body>
+<div id="header">
+	<div id="logo">
+		<img src="../images/first/homeLogo.png"/>
+	</div>
+	<div id="navigation">
+		<ul>
+	        <li><a href="../index.html"><img src="../images/first/navigationHome.png"></a></li>
+	        <li><a href="corpus.html"><img src="../images/first/navigationCorpus.png"></a></li>
+	        <li><a href="facade.html"><img src="../images/first/navigationFacade.png"></a></li>
+	        <li><a><img src="../images/first/navigationImago.png"></a></li>
+		</ul>
+	</div>
+	<div id="rightHead">
+		<div id="operator">
+			<div id="login"><a href="javascript:void(0)" id="loginBtn"><img src="../images/first/login.png"></a></div>
+			<div id="register"><a href="javascript:void(0)" id="registerBtn"><img src="../images/first/register.png"></a></div>
+		</div>
+		<div id="search"><img src="../images/first/search.png"></div>
+	</div>
+</div>
+<div id="content"></div>
+<div id="footer">
+	<div id="upFooter">
+		<div id="concernUs">
+			<p>关注我们</p>
+			<ul id="concernUsContent">
+				<li><a href="javascript:void(0)">关于意象</a></li>
+				<li><a href="javascript:void(0)">意象新闻</a></li>
+				<li><a href="javascript:void(0)">意象QQ群：123456</a></li>
+				<li><a href="javascript:void(0)">意象微信：yixiangyingshe_1</a></li>
+			</ul>
+		</div>
+		<div id="tuochUs">
+			<p>联系我们</p>
+			<ul id="tuochUsContent">
+				<li>有任何想法请联系我们。</li>
+				<li>中国浙江省杭州市西湖区</li>
+				<li>中国美院象山校区18号楼115室</li>
+				<li>057187200225</li>
+				<li>aliu6@126.com</li>
+			</ul>
+		</div>
+		<div id="quickLink">
+			<p>快速链接</p>
+			<ul id="quickLinkContent">
+				<li><a href="javascript:void(0)">中国美院大学生科技园</a></li>
+				<li><a href="javascript:void(0)">中国美术学院</a></li>
+				<li><a href="javascript:void(0)">中国美院设计学院</a></li>
+				<li><a href="javascript:void(0)">知识工程师入口</a></li>
+			</ul>
+		</div>
+	</div>
+	<hr>
+	<div id="downFooter">
+		COPYRIGHT 2016 YIXIANGYINGSHE ALL RIGHTS RESERVED
+	</div>
+</div>
+<script type="text/javascript">
+function loginCheck(){
+	var account = document.getElementById("account");
+	var password = document.getElementById("password");
+	if(account.value==""){
+		alert("请输入账号");
+		return false;
+	}else if(password.value==""){
+		alert("请输入密码");
+		return false;
+	}
+}
+</script>
+<div id="LoginBox">
+	<form action="customerLogin.do" method="post" onSubmit="return loginCheck()">
+	    <div class="rowTitle"> 
+	   	 意象造型映射<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
+	    </div>
+	    <div class="row">
+	         <span>账号</span>  <br>
+	         <div class="inputBox">
+	            <input type="text" class="txt" id="account" name="account" placeholder="账号"/>
+	         </div>
+	    </div>
+	    <div class="row">
+	       <span>密码</span><br>
+	    	<div class="inputBox">
+	            <input type="password" class="txt" id="password" name="password" placeholder="密码" />
+	        </div>
+	    </div>
+	    <div class="row">
+	        <button type="submit" id="loginbtn">登录</button>
+	    </div>
+    </form>
+    <div id="loginHint">
+   	 还没有账号？<a href="javascript:void(0)" id="turnToRegister">注册</a>
+    </div>
+    <script type="text/javascript">
+    $("#turnToRegister").on('click',function(){
+    	$("#LoginBox").fadeOut(0);
+    	$("#RegisterBox").fadeIn(0);
+    })
+    </script>
+</div>
+<script type="text/javascript">
+	$(function ($) {
+		//弹出登录
+		$("#loginBtn").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.6'
+			}, 1000);
+		}).on('click', function () {
+			$("body").append("<div id='mask'></div>");
+			$("#mask").addClass("mask").fadeIn("slow");
+			$("#LoginBox").fadeIn("slow");
+		});
+		//
+		//按钮的透明度
+		$("#loginbtn").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.8'
+			}, 1000);
+		});
+		//关闭
+		$(".close_btn").hover(function () { $(this).css({ color: 'black' }) }, function () { $(this).css({ color: '#51A3BB' }) }).on('click', function () {
+			$("#LoginBox").fadeOut("fast");
+			$("#mask").css({ display: 'none' });
+		});
+	});
+</script>
+<script type="text/javascript">
+function registerCheck(){
+	var newAccount = document.getElementById("newAccount");
+	var newPassword = document.getElementById("newPassword");
+	if(newAccount.value==""){
+		alert("请输入账号");
+		return false;
+	}else if(newPassword.value==""){
+		alert("请输入密码");
+		return false;
+	}
+}
+</script>
+<div id="RegisterBox">
+	<form action="customerRegister.do" method="post" onSubmit="return registerCheck()">
+	    <div class="rowTitle"> 
+	   	 意象造型映射<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
+	    </div>
+	    <div class="row">
+	         <span>账号</span>  <br>
+	         <div class="inputBox">
+	            <input type="text" class="txt" id="newAccount" name="newAccount" placeholder="账号"/>
+	         </div>
+	    </div>
+	    <div class="row">
+	       <span>密码</span><br>
+	    	<div class="inputBox">
+	            <input type="password" class="txt" id="newPassword" name="newPassword" placeholder="密码" />
+	        </div>
+	    </div>
+	    <div class="row">
+	        <button type="submit" id="registerbtn">注册</button>
+	    </div>
+    </form>
+    <div id="registerHint">
+   	 注册成功，请<a href="javascript:void(0)" id="turnToLogin">登录</a>
+    </div>
+    <script type="text/javascript">
+    $("#turnToLogin").on('click',function(){
+    	$("#RegisterBox").fadeOut(0);
+    	$("#LoginBox").fadeIn(0);
+    })
+    </script>
+</div>
+<script type="text/javascript">
+	$(function ($) {
+		//弹出注册
+		$("#registerBtn").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.6'
+			}, 1000);
+		}).on('click', function () {
+			$("body").append("<div id='mask'></div>");
+			$("#mask").addClass("mask").fadeIn("slow");
+			$("#RegisterBox").fadeIn("slow");
+		});
+		//
+		//按钮的透明度
+		$("#registerbtn").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.8'
+			}, 1000);
+		});
+		//关闭
+		$(".close_btn").hover(function () { $(this).css({ color: 'black' }) }, function () { $(this).css({ color: '#51A3BB' }) }).on('click', function () {
+			$("#RegisterBox").fadeOut("fast");
+			$("#mask").css({ display: 'none' });
+		});
+	});
+</script>
+</body>
+</html>

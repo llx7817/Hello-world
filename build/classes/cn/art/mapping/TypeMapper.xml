@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.art.dao.TypeMapper" >
+  <resultMap id="BaseResultMap" type="cn.art.model.Type" >
+    <id column="TID" property="tid" jdbcType="INTEGER" />
+    <result column="TName" property="tname" jdbcType="VARCHAR" />
+    <result column="TAlgorithm" property="talgorithm" jdbcType="INTEGER" />
+    <result column="TWordType" property="twordtype" jdbcType="INTEGER" />
+    <result column="TYuyi" property="tyuyi" jdbcType="VARCHAR" />
+    <result column="TAnli" property="tanli" jdbcType="VARCHAR" />
+    <result column="TBianma" property="tbianma" jdbcType="VARCHAR" />
+    <result column="TZaoxing" property="tzaoxing" jdbcType="VARCHAR" />
+    <result column="TCanshu" property="tcanshu" jdbcType="VARCHAR" />
+    <result column="TShengcheng" property="tshengcheng" jdbcType="VARCHAR" />
+    <result column="TTiaozheng" property="ttiaozheng" jdbcType="VARCHAR" />
+    <result column="TIcon" property="ticon" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <resultMap id="BaseResultMapOnlyIdandName" type="cn.art.util.pojo.typeIdName" >
+    <id column="TID" property="tid" jdbcType="INTEGER" />
+    <result column="TName" property="tname" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    TID, TName, TAlgorithm, TWordType, TYuyi, TAnli, TBianma, TZaoxing, TCanshu, TShengcheng, 
+    TTiaozheng, TIcon
+  </sql>
+  
+   <sql id="Base_Column_List1" >
+    TID, TName
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from type_
+    where TID = #{tid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from type_
+  </select>
+  
+  <select id="selectAllByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from type_
+    where TName = #{tname,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectAllByWordType" resultMap="BaseResultMapOnlyIdandName" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List1" />
+    from type_
+    where TWordType = #{twordtype,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAllOnlyIdandName" resultMap="BaseResultMapOnlyIdandName">
+    select 
+    <include refid="Base_Column_List1" />
+    from type_
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from type_
+    where TID = #{tid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.art.model.Type" >
+    insert into type_ (TID, TName, TAlgorithm, 
+      TWordType, TYuyi, TAnli, 
+      TBianma, TZaoxing, TCanshu, 
+      TShengcheng, TTiaozheng, TIcon
+      )
+    values (#{tid,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR}, #{talgorithm,jdbcType=INTEGER}, 
+      #{twordtype,jdbcType=INTEGER}, #{tyuyi,jdbcType=VARCHAR}, #{tanli,jdbcType=VARCHAR}, 
+      #{tbianma,jdbcType=VARCHAR}, #{tzaoxing,jdbcType=VARCHAR}, #{tcanshu,jdbcType=VARCHAR}, 
+      #{tshengcheng,jdbcType=VARCHAR}, #{ttiaozheng,jdbcType=VARCHAR}, #{ticon,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.art.model.Type" >
+    insert into type_
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        TID,
+      </if>
+      <if test="tname != null" >
+        TName,
+      </if>
+      <if test="talgorithm != null" >
+        TAlgorithm,
+      </if>
+      <if test="twordtype != null" >
+        TWordType,
+      </if>
+      <if test="tyuyi != null" >
+        TYuyi,
+      </if>
+      <if test="tanli != null" >
+        TAnli,
+      </if>
+      <if test="tbianma != null" >
+        TBianma,
+      </if>
+      <if test="tzaoxing != null" >
+        TZaoxing,
+      </if>
+      <if test="tcanshu != null" >
+        TCanshu,
+      </if>
+      <if test="tshengcheng != null" >
+        TShengcheng,
+      </if>
+      <if test="ttiaozheng != null" >
+        TTiaozheng,
+      </if>
+      <if test="ticon != null" >
+        TIcon,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="tname != null" >
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="talgorithm != null" >
+        #{talgorithm,jdbcType=INTEGER},
+      </if>
+      <if test="twordtype != null" >
+        #{twordtype,jdbcType=INTEGER},
+      </if>
+      <if test="tyuyi != null" >
+        #{tyuyi,jdbcType=VARCHAR},
+      </if>
+      <if test="tanli != null" >
+        #{tanli,jdbcType=VARCHAR},
+      </if>
+      <if test="tbianma != null" >
+        #{tbianma,jdbcType=VARCHAR},
+      </if>
+      <if test="tzaoxing != null" >
+        #{tzaoxing,jdbcType=VARCHAR},
+      </if>
+      <if test="tcanshu != null" >
+        #{tcanshu,jdbcType=VARCHAR},
+      </if>
+      <if test="tshengcheng != null" >
+        #{tshengcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="ttiaozheng != null" >
+        #{ttiaozheng,jdbcType=VARCHAR},
+      </if>
+      <if test="ticon != null" >
+        #{ticon,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.art.model.Type" >
+    update type_
+    <set >
+      <if test="tname != null" >
+        TName = #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="talgorithm != null" >
+        TAlgorithm = #{talgorithm,jdbcType=INTEGER},
+      </if>
+      <if test="twordtype != null" >
+        TWordType = #{twordtype,jdbcType=INTEGER},
+      </if>
+      <if test="tyuyi != null" >
+        TYuyi = #{tyuyi,jdbcType=VARCHAR},
+      </if>
+      <if test="tanli != null" >
+        TAnli = #{tanli,jdbcType=VARCHAR},
+      </if>
+      <if test="tbianma != null" >
+        TBianma = #{tbianma,jdbcType=VARCHAR},
+      </if>
+      <if test="tzaoxing != null" >
+        TZaoxing = #{tzaoxing,jdbcType=VARCHAR},
+      </if>
+      <if test="tcanshu != null" >
+        TCanshu = #{tcanshu,jdbcType=VARCHAR},
+      </if>
+      <if test="tshengcheng != null" >
+        TShengcheng = #{tshengcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="ttiaozheng != null" >
+        TTiaozheng = #{ttiaozheng,jdbcType=VARCHAR},
+      </if>
+      <if test="ticon != null" >
+        TIcon = #{ticon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TID = #{tid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.art.model.Type" >
+    update type_
+    set TName = #{tname,jdbcType=VARCHAR},
+      TAlgorithm = #{talgorithm,jdbcType=INTEGER},
+      TWordType = #{twordtype,jdbcType=INTEGER},
+      TYuyi = #{tyuyi,jdbcType=VARCHAR},
+      TAnli = #{tanli,jdbcType=VARCHAR},
+      TBianma = #{tbianma,jdbcType=VARCHAR},
+      TZaoxing = #{tzaoxing,jdbcType=VARCHAR},
+      TCanshu = #{tcanshu,jdbcType=VARCHAR},
+      TShengcheng = #{tshengcheng,jdbcType=VARCHAR},
+      TTiaozheng = #{ttiaozheng,jdbcType=VARCHAR},
+      TIcon = #{ticon,jdbcType=VARCHAR}
+    where TID = #{tid,jdbcType=INTEGER}
+  </update>
+</mapper>

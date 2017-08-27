@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.art.dao.TextureMapper" >
+  <resultMap id="BaseResultMap" type="cn.art.model.Texture" >
+    <id column="TextureID" property="textureid" jdbcType="INTEGER" />
+    <result column="TTID" property="ttid" jdbcType="INTEGER" />
+    <result column="TID" property="tid" jdbcType="INTEGER" />
+    <result column="TDescription" property="tdescription" jdbcType="VARCHAR" />
+    <result column="TFile" property="tfile" jdbcType="VARCHAR" />
+    <result column="TImg" property="timg" jdbcType="VARCHAR" />
+    <result column="TImg1" property="timg1" jdbcType="VARCHAR" />
+    <result column="TImg2" property="timg2" jdbcType="VARCHAR" />
+    <result column="TImg3" property="timg3" jdbcType="VARCHAR" />
+    <result column="TImg4" property="timg4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TextureID, TTID, TID, TDescription, TFile, TImg, TImg1, TImg2, TImg3, TImg4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from texture_
+    where TextureID = #{textureid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByTIDandTTID" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from texture_
+    where TID = #{tid,jdbcType=INTEGER} and  TTID = #{ttid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByTID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from texture_
+    where TID = #{tid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from texture_
+    where TDescription = #{tdescription,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="CountNumByName" resultType="java.lang.Integer" parameterType="java.lang.String" >
+    select count(*) from texture_
+    where TDescription = #{tdescription,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from texture_
+    where TextureID = #{textureid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.art.model.Texture" >
+    insert into texture_ (TextureID, TTID, TID, 
+      TDescription, TFile, TImg, 
+      TImg1, TImg2, TImg3, 
+      TImg4)
+    values (#{textureid,jdbcType=INTEGER}, #{ttid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, 
+      #{tdescription,jdbcType=VARCHAR}, #{tfile,jdbcType=VARCHAR}, #{timg,jdbcType=VARCHAR}, 
+      #{timg1,jdbcType=VARCHAR}, #{timg2,jdbcType=VARCHAR}, #{timg3,jdbcType=VARCHAR}, 
+      #{timg4,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.art.model.Texture" >
+    insert into texture_
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="textureid != null" >
+        TextureID,
+      </if>
+      <if test="ttid != null" >
+        TTID,
+      </if>
+      <if test="tid != null" >
+        TID,
+      </if>
+      <if test="tdescription != null" >
+        TDescription,
+      </if>
+      <if test="tfile != null" >
+        TFile,
+      </if>
+      <if test="timg != null" >
+        TImg,
+      </if>
+      <if test="timg1 != null" >
+        TImg1,
+      </if>
+      <if test="timg2 != null" >
+        TImg2,
+      </if>
+      <if test="timg3 != null" >
+        TImg3,
+      </if>
+      <if test="timg4 != null" >
+        TImg4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="textureid != null" >
+        #{textureid,jdbcType=INTEGER},
+      </if>
+      <if test="ttid != null" >
+        #{ttid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="tdescription != null" >
+        #{tdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="tfile != null" >
+        #{tfile,jdbcType=VARCHAR},
+      </if>
+      <if test="timg != null" >
+        #{timg,jdbcType=VARCHAR},
+      </if>
+      <if test="timg1 != null" >
+        #{timg1,jdbcType=VARCHAR},
+      </if>
+      <if test="timg2 != null" >
+        #{timg2,jdbcType=VARCHAR},
+      </if>
+      <if test="timg3 != null" >
+        #{timg3,jdbcType=VARCHAR},
+      </if>
+      <if test="timg4 != null" >
+        #{timg4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.art.model.Texture" >
+    update texture_
+    <set >
+      <if test="ttid != null" >
+        TTID = #{ttid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        TID = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="tdescription != null" >
+        TDescription = #{tdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="tfile != null" >
+        TFile = #{tfile,jdbcType=VARCHAR},
+      </if>
+      <if test="timg != null" >
+        TImg = #{timg,jdbcType=VARCHAR},
+      </if>
+      <if test="timg1 != null" >
+        TImg1 = #{timg1,jdbcType=VARCHAR},
+      </if>
+      <if test="timg2 != null" >
+        TImg2 = #{timg2,jdbcType=VARCHAR},
+      </if>
+      <if test="timg3 != null" >
+        TImg3 = #{timg3,jdbcType=VARCHAR},
+      </if>
+      <if test="timg4 != null" >
+        TImg4 = #{timg4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TextureID = #{textureid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.art.model.Texture" >
+    update texture_
+    set TTID = #{ttid,jdbcType=INTEGER},
+      TID = #{tid,jdbcType=INTEGER},
+      TDescription = #{tdescription,jdbcType=VARCHAR},
+      TFile = #{tfile,jdbcType=VARCHAR},
+      TImg = #{timg,jdbcType=VARCHAR},
+      TImg1 = #{timg1,jdbcType=VARCHAR},
+      TImg2 = #{timg2,jdbcType=VARCHAR},
+      TImg3 = #{timg3,jdbcType=VARCHAR},
+      TImg4 = #{timg4,jdbcType=VARCHAR}
+    where TextureID = #{textureid,jdbcType=INTEGER}
+  </update>
+</mapper>

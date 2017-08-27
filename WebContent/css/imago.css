@@ -1,0 +1,110 @@
+@CHARSET "UTF-8";
+
+#header{
+	margin: 0px 100px 100px 100px;
+	overflow: hidden;
+}
+#logo{
+	float:left;
+}
+#navigation{
+	float:left;
+}
+#navigation ul{
+	margin:0px;
+	padding:0px;
+	list-style-type: none;
+}
+#navigation li{
+	float:left;
+}
+#rightHead{
+	background-image:url("../images/first/navigationBackground.gif");
+	height:92px;
+	float:left;
+}
+#operator{
+	overflow: hidden;
+}
+#login{
+	float:left;
+}
+#register{
+	float:left;
+}
+#search{
+	text-align: center;
+}
+
+#footer{
+	background-color: #51A3BB;
+	color:white;
+}
+#upFooter{
+	overflow: hidden;
+}
+#concernUs{
+	margin-left:10%;
+	width:30%;
+	float:left;
+}
+#concernUs p{
+	font-size:18px;
+	margin-left: 30px;	
+}
+#concernUs ul{
+	font-size:13px;
+	list-style-type: none;	
+}
+#concernUs ul li{
+	padding: 3px 0px 3px 0px;
+}
+#concernUs ul li a{
+	text-decoration:none;
+	display: block;
+	color: white;
+}
+#tuochUs{
+	width:30%;
+	float: left;
+}
+#tuochUs p{
+	font-size:18px;
+	margin-left: 40px;	
+}
+#tuochUs ul{
+	font-size:13px;
+	list-style-type: none;	
+}
+#tuochUs ul li{
+	padding: 3px 0px 3px 0px;
+}
+#tuochUs ul li a{
+	text-decoration:none;
+	display: block;
+}
+#quickLink{
+	width:30%;
+	float: left;
+}
+#quickLink p{
+	font-size:18px;
+	margin-left: 30px;	
+}
+#quickLink ul{
+	font-size:13px;
+	list-style-type: none;	
+}
+#quickLink ul li{
+	padding: 3px 0px 3px 0px;
+}
+#quickLink ul li a{
+	text-decoration:none;
+	display: block;
+	color: white;
+}
+#downFooter{
+	margin-left:10%;
+	padding: 10px 0px 10px 0px;
+	font-size:13px;
+}

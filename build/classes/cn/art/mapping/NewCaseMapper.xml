@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.art.dao.NewCaseMapper" >
+  <resultMap id="BaseResultMap" type="cn.art.model.NewCase" >
+    <id column="NID" property="nid" jdbcType="INTEGER" />
+    <result column="TID" property="tid" jdbcType="INTEGER" />
+    <result column="NewCaseName" property="newcasename" jdbcType="VARCHAR" />
+    <result column="NewCaseImg" property="newcaseimg" jdbcType="VARCHAR" />
+    <result column="NewCaseArg" property="newcasearg" jdbcType="VARCHAR" />
+    <result column="NewCaseData" property="newcasedata" jdbcType="VARCHAR" />
+    <result column="NewCaseRTotal" property="newcasertotal" jdbcType="VARCHAR" />
+    <result column="NewCaseROutline" property="newcaseroutline" jdbcType="VARCHAR" />
+    <result column="NewCaseRColor" property="newcasercolor" jdbcType="VARCHAR" />
+    <result column="NewCaseRColorID" property="newcasercolorid" jdbcType="INTEGER" />
+    <result column="NewCaseRTexture" property="newcasertexture" jdbcType="VARCHAR" />
+    <result column="NewCaseRTextureID" property="newcasertextureid" jdbcType="INTEGER" />
+    <result column="NewCaseATotal" property="newcaseatotal" jdbcType="VARCHAR" />
+    <result column="NewCaseAOutline" property="newcaseaoutline" jdbcType="VARCHAR" />
+    <result column="NewCaseAColor" property="newcaseacolor" jdbcType="VARCHAR" />
+    <result column="NewCaseAColorID" property="newcaseacolorid" jdbcType="INTEGER" />
+    <result column="NewCaseATexture" property="newcaseatexture" jdbcType="VARCHAR" />
+    <result column="NewCaseATextureID" property="newcaseatextureid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    NID, TID, NewCaseName, NewCaseImg, NewCaseArg, NewCaseData, NewCaseRTotal, NewCaseROutline, 
+    NewCaseRColor, NewCaseRColorID, NewCaseRTexture, NewCaseRTextureID, NewCaseATotal, 
+    NewCaseAOutline, NewCaseAColor, NewCaseAColorID, NewCaseATexture, NewCaseATextureID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from newcase_
+    where NID = #{nid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByTID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  select 
+  <include refid="Base_Column_List" />
+  from newcase_
+  where TID = #{tid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from newcase_
+    where NewCaseName = #{newcasename,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="CountNumByName" resultType="java.lang.Integer" parameterType="java.lang.String" >
+    select count(*) from newcase_
+    where NewCaseName = #{newcasename,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from newcase_
+    where NID = #{nid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.art.model.NewCase" >
+    insert into newcase_ (NID, TID, NewCaseName, 
+      NewCaseImg, NewCaseArg, NewCaseData, 
+      NewCaseRTotal, NewCaseROutline, NewCaseRColor, 
+      NewCaseRColorID, NewCaseRTexture, NewCaseRTextureID, 
+      NewCaseATotal, NewCaseAOutline, NewCaseAColor, 
+      NewCaseAColorID, NewCaseATexture, NewCaseATextureID
+      )
+    values (#{nid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{newcasename,jdbcType=VARCHAR}, 
+      #{newcaseimg,jdbcType=VARCHAR}, #{newcasearg,jdbcType=VARCHAR}, #{newcasedata,jdbcType=VARCHAR}, 
+      #{newcasertotal,jdbcType=VARCHAR}, #{newcaseroutline,jdbcType=VARCHAR}, #{newcasercolor,jdbcType=VARCHAR}, 
+      #{newcasercolorid,jdbcType=INTEGER}, #{newcasertexture,jdbcType=VARCHAR}, #{newcasertextureid,jdbcType=INTEGER}, 
+      #{newcaseatotal,jdbcType=VARCHAR}, #{newcaseaoutline,jdbcType=VARCHAR}, #{newcaseacolor,jdbcType=VARCHAR}, 
+      #{newcaseacolorid,jdbcType=INTEGER}, #{newcaseatexture,jdbcType=VARCHAR}, #{newcaseatextureid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.art.model.NewCase" >
+    insert into newcase_
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nid != null" >
+        NID,
+      </if>
+      <if test="tid != null" >
+        TID,
+      </if>
+      <if test="newcasename != null" >
+        NewCaseName,
+      </if>
+      <if test="newcaseimg != null" >
+        NewCaseImg,
+      </if>
+      <if test="newcasearg != null" >
+        NewCaseArg,
+      </if>
+      <if test="newcasedata != null" >
+        NewCaseData,
+      </if>
+      <if test="newcasertotal != null" >
+        NewCaseRTotal,
+      </if>
+      <if test="newcaseroutline != null" >
+        NewCaseROutline,
+      </if>
+      <if test="newcasercolor != null" >
+        NewCaseRColor,
+      </if>
+      <if test="newcasercolorid != null" >
+        NewCaseRColorID,
+      </if>
+      <if test="newcasertexture != null" >
+        NewCaseRTexture,
+      </if>
+      <if test="newcasertextureid != null" >
+        NewCaseRTextureID,
+      </if>
+      <if test="newcaseatotal != null" >
+        NewCaseATotal,
+      </if>
+      <if test="newcaseaoutline != null" >
+        NewCaseAOutline,
+      </if>
+      <if test="newcaseacolor != null" >
+        NewCaseAColor,
+      </if>
+      <if test="newcaseacolorid != null" >
+        NewCaseAColorID,
+      </if>
+      <if test="newcaseatexture != null" >
+        NewCaseATexture,
+      </if>
+      <if test="newcaseatextureid != null" >
+        NewCaseATextureID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nid != null" >
+        #{nid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="newcasename != null" >
+        #{newcasename,jdbcType=VARCHAR},
+      </if>
+      <if test="newcaseimg != null" >
+        #{newcaseimg,jdbcType=VARCHAR},
+      </if>
+      <if test="newcasearg != null" >
+        #{newcasearg,jdbcType=VARCHAR},
+      </if>
+      <if test="newcasedata != null" >
+        #{newcasedata,jdbcType=VARCHAR},
+      </if>
+      <if test="newcasertotal != null" >
+        #{newcasertotal,jdbcType=VARCHAR},
+      </if>
+      <if test="newcaseroutline != null" >
+        #{newcaseroutline,jdbcType=VARCHAR},
+      </if>
+      <if test="newcasercolor != null" >
+        #{newcasercolor,jdbcType=VARCHAR},
+      </if>
+      <if test="newcasercolorid != null" >
+        #{newcasercolorid,jdbcType=INTEGER},
+      </if>
+      <if test="newcasertexture != null" >
+        #{newcasertexture,jdbcType=VARCHAR},
+      </if>
+      <if test="newcasertextureid != null" >
+        #{newcasertextureid,jdbcType=INTEGER},
+      </if>
+      <if test="newcaseatotal != null" >
+        #{newcaseatotal,jdbcType=VARCHAR},
+      </if>
+      <if test="newcaseaoutline != null" >
+        #{newcaseaoutline,jdbcType=VARCHAR},
+      </if>
+      <if test="newcaseacolor != null" >
+        #{newcaseacolor,jdbcType=VARCHAR},
+      </if>
+      <if test="newcaseacolorid != null" >
+        #{newcaseacolorid,jdbcType=INTEGER},
+      </if>
+      <if test="newcaseatexture != null" >
+        #{newcaseatexture,jdbcType=VARCHAR},
+      </if>
+      <if test="newcaseatextureid != null" >
+        #{newcaseatextureid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.art.model.NewCase" >
+    update newcase_
+    <set >
+      <if test="tid != null" >
+        TID = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="newcasename != null" >
+        NewCaseName = #{newcasename,jdbcType=VARCHAR},
+      </if>
+      <if test="newcaseimg != null" >
+        NewCaseImg = #{newcaseimg,jdbcType=VARCHAR},
+      </if>
+      <if test="newcasearg != null" >
+        NewCaseArg = #{newcasearg,jdbcType=VARCHAR},
+      </if>
+      <if test="newcasedata != null" >
+        NewCaseData = #{newcasedata,jdbcType=VARCHAR},
+      </if>
+      <if test="newcasertotal != null" >
+        NewCaseRTotal = #{newcasertotal,jdbcType=VARCHAR},
+      </if>
+      <if test="newcaseroutline != null" >
+        NewCaseROutline = #{newcaseroutline,jdbcType=VARCHAR},
+      </if>
+      <if test="newcasercolor != null" >
+        NewCaseRColor = #{newcasercolor,jdbcType=VARCHAR},
+      </if>
+      <if test="newcasercolorid != null" >
+        NewCaseRColorID = #{newcasercolorid,jdbcType=INTEGER},
+      </if>
+      <if test="newcasertexture != null" >
+        NewCaseRTexture = #{newcasertexture,jdbcType=VARCHAR},
+      </if>
+      <if test="newcasertextureid != null" >
+        NewCaseRTextureID = #{newcasertextureid,jdbcType=INTEGER},
+      </if>
+      <if test="newcaseatotal != null" >
+        NewCaseATotal = #{newcaseatotal,jdbcType=VARCHAR},
+      </if>
+      <if test="newcaseaoutline != null" >
+        NewCaseAOutline = #{newcaseaoutline,jdbcType=VARCHAR},
+      </if>
+      <if test="newcaseacolor != null" >
+        NewCaseAColor = #{newcaseacolor,jdbcType=VARCHAR},
+      </if>
+      <if test="newcaseacolorid != null" >
+        NewCaseAColorID = #{newcaseacolorid,jdbcType=INTEGER},
+      </if>
+      <if test="newcaseatexture != null" >
+        NewCaseATexture = #{newcaseatexture,jdbcType=VARCHAR},
+      </if>
+      <if test="newcaseatextureid != null" >
+        NewCaseATextureID = #{newcaseatextureid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where NID = #{nid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.art.model.NewCase" >
+    update newcase_
+    set TID = #{tid,jdbcType=INTEGER},
+      NewCaseName = #{newcasename,jdbcType=VARCHAR},
+      NewCaseImg = #{newcaseimg,jdbcType=VARCHAR},
+      NewCaseArg = #{newcasearg,jdbcType=VARCHAR},
+      NewCaseData = #{newcasedata,jdbcType=VARCHAR},
+      NewCaseRTotal = #{newcasertotal,jdbcType=VARCHAR},
+      NewCaseROutline = #{newcaseroutline,jdbcType=VARCHAR},
+      NewCaseRColor = #{newcasercolor,jdbcType=VARCHAR},
+      NewCaseRColorID = #{newcasercolorid,jdbcType=INTEGER},
+      NewCaseRTexture = #{newcasertexture,jdbcType=VARCHAR},
+      NewCaseRTextureID = #{newcasertextureid,jdbcType=INTEGER},
+      NewCaseATotal = #{newcaseatotal,jdbcType=VARCHAR},
+      NewCaseAOutline = #{newcaseaoutline,jdbcType=VARCHAR},
+      NewCaseAColor = #{newcaseacolor,jdbcType=VARCHAR},
+      NewCaseAColorID = #{newcaseacolorid,jdbcType=INTEGER},
+      NewCaseATexture = #{newcaseatexture,jdbcType=VARCHAR},
+      NewCaseATextureID = #{newcaseatextureid,jdbcType=INTEGER}
+    where NID = #{nid,jdbcType=INTEGER}
+  </update>
+</mapper>

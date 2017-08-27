@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.art.dao.BottomCaseTypeMapper" >
+  <resultMap id="BaseResultMap" type="cn.art.model.BottomCaseType" >
+    <id column="BCTID" property="bctid" jdbcType="INTEGER" />
+    <result column="BCTName" property="bctname" jdbcType="VARCHAR" />
+    <result column="TID" property="tid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    BCTID, BCTName, TID
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from bottomcasetype_
+    where BCTID = #{bctid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByTID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from bottomcasetype_
+    where TID = #{tid,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from bottomcasetype_
+    where BCTID = #{bctid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.art.model.BottomCaseType" >
+    insert into bottomcasetype_ (BCTID, BCTName, TID
+      )
+    values (#{bctid,jdbcType=INTEGER}, #{bctname,jdbcType=VARCHAR}, #{tid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.art.model.BottomCaseType" >
+    insert into bottomcasetype_
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bctid != null" >
+        BCTID,
+      </if>
+      <if test="bctname != null" >
+        BCTName,
+      </if>
+      <if test="tid != null" >
+        TID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bctid != null" >
+        #{bctid,jdbcType=INTEGER},
+      </if>
+      <if test="bctname != null" >
+        #{bctname,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.art.model.BottomCaseType" >
+    update bottomcasetype_
+    <set >
+      <if test="bctname != null" >
+        BCTName = #{bctname,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null" >
+        TID = #{tid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where BCTID = #{bctid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.art.model.BottomCaseType" >
+    update bottomcasetype_
+    set BCTName = #{bctname,jdbcType=VARCHAR},
+      TID = #{tid,jdbcType=INTEGER}
+    where BCTID = #{bctid,jdbcType=INTEGER}
+  </update>
+</mapper>

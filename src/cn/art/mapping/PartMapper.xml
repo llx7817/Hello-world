@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.art.dao.PartMapper" >
+  <resultMap id="BaseResultMap" type="cn.art.model.Part" >
+    <id column="PID" property="pid" jdbcType="INTEGER" />
+    <result column="PBID" property="pbid" jdbcType="INTEGER" />
+    <result column="TID" property="tid" jdbcType="INTEGER" />
+    <result column="PDescription" property="pdescription" jdbcType="VARCHAR" />
+    <result column="PFile" property="pfile" jdbcType="VARCHAR" />
+    <result column="PImg" property="pimg" jdbcType="VARCHAR" />
+    <result column="PImg1" property="pimg1" jdbcType="VARCHAR" />
+    <result column="PImg2" property="pimg2" jdbcType="VARCHAR" />
+    <result column="PImg3" property="pimg3" jdbcType="VARCHAR" />
+    <result column="PImg4" property="pimg4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PID, PBID, TID, PDescription, PFile, PImg, PImg1, PImg2, PImg3, PImg4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from part_
+    where PID = #{pid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByTIDandPBID" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from part_
+    where TID = #{tid,jdbcType=INTEGER} and  PBID = #{pbid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByTID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from part_
+    where TID = #{tid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from part_
+    where PDescription = #{pdescription,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="CountNumByName" resultType="java.lang.Integer" parameterType="java.lang.String" >
+    select count(*) from part_
+     where PDescription = #{pdescription,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from part_
+    where PID = #{pid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.art.model.Part" >
+    insert into part_ (PID, PBID, TID, 
+      PDescription, PFile, PImg, 
+      PImg1, PImg2, PImg3, 
+      PImg4)
+    values (#{pid,jdbcType=INTEGER}, #{pbid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, 
+      #{pdescription,jdbcType=VARCHAR}, #{pfile,jdbcType=VARCHAR}, #{pimg,jdbcType=VARCHAR}, 
+      #{pimg1,jdbcType=VARCHAR}, #{pimg2,jdbcType=VARCHAR}, #{pimg3,jdbcType=VARCHAR}, 
+      #{pimg4,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.art.model.Part" >
+    insert into part_
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pid != null" >
+        PID,
+      </if>
+      <if test="pbid != null" >
+        PBID,
+      </if>
+      <if test="tid != null" >
+        TID,
+      </if>
+      <if test="pdescription != null" >
+        PDescription,
+      </if>
+      <if test="pfile != null" >
+        PFile,
+      </if>
+      <if test="pimg != null" >
+        PImg,
+      </if>
+      <if test="pimg1 != null" >
+        PImg1,
+      </if>
+      <if test="pimg2 != null" >
+        PImg2,
+      </if>
+      <if test="pimg3 != null" >
+        PImg3,
+      </if>
+      <if test="pimg4 != null" >
+        PImg4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="pbid != null" >
+        #{pbid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="pdescription != null" >
+        #{pdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="pfile != null" >
+        #{pfile,jdbcType=VARCHAR},
+      </if>
+      <if test="pimg != null" >
+        #{pimg,jdbcType=VARCHAR},
+      </if>
+      <if test="pimg1 != null" >
+        #{pimg1,jdbcType=VARCHAR},
+      </if>
+      <if test="pimg2 != null" >
+        #{pimg2,jdbcType=VARCHAR},
+      </if>
+      <if test="pimg3 != null" >
+        #{pimg3,jdbcType=VARCHAR},
+      </if>
+      <if test="pimg4 != null" >
+        #{pimg4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.art.model.Part" >
+    update part_
+    <set >
+      <if test="pbid != null" >
+        PBID = #{pbid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        TID = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="pdescription != null" >
+        PDescription = #{pdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="pfile != null" >
+        PFile = #{pfile,jdbcType=VARCHAR},
+      </if>
+      <if test="pimg != null" >
+        PImg = #{pimg,jdbcType=VARCHAR},
+      </if>
+      <if test="pimg1 != null" >
+        PImg1 = #{pimg1,jdbcType=VARCHAR},
+      </if>
+      <if test="pimg2 != null" >
+        PImg2 = #{pimg2,jdbcType=VARCHAR},
+      </if>
+      <if test="pimg3 != null" >
+        PImg3 = #{pimg3,jdbcType=VARCHAR},
+      </if>
+      <if test="pimg4 != null" >
+        PImg4 = #{pimg4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PID = #{pid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.art.model.Part" >
+    update part_
+    set PBID = #{pbid,jdbcType=INTEGER},
+      TID = #{tid,jdbcType=INTEGER},
+      PDescription = #{pdescription,jdbcType=VARCHAR},
+      PFile = #{pfile,jdbcType=VARCHAR},
+      PImg = #{pimg,jdbcType=VARCHAR},
+      PImg1 = #{pimg1,jdbcType=VARCHAR},
+      PImg2 = #{pimg2,jdbcType=VARCHAR},
+      PImg3 = #{pimg3,jdbcType=VARCHAR},
+      PImg4 = #{pimg4,jdbcType=VARCHAR}
+    where PID = #{pid,jdbcType=INTEGER}
+  </update>
+</mapper>
